@@ -1,0 +1,74 @@
+[%- USE Latex;
+     FILTER latex("pdf") %]
+\documentclass[oneside,spanish]{scrartcl}
+\usepackage[T1]{fontenc}
+\usepackage[latin9]{inputenc}
+\setcounter{secnumdepth}{3}
+\setcounter{tocdepth}{3}
+\usepackage{array}
+\usepackage{longtable}
+\usepackage{float}
+\usepackage{booktabs}
+\usepackage{textcomp}
+\usepackage{color}
+
+\makeatletter
+
+\providecommand{\tabularnewline}{\\}
+
+\makeatother
+
+\usepackage{babel}
+\deactivatetilden
+
+\begin{document}
+
+\title{Reporte de Notas}
+\subject{ Sistema de Consulta de Notas }
+
+\maketitle
+
+\section{Datos del estudiante}
+
+\begin{tabular}{|c|c|}
+\hline 
+\textbf{Nombre:} & [% c.user.nombres %] \tabularnewline
+\hline
+\textbf{Apellido:} & [% c.user.apellidos %] \tabularnewline
+\hline
+\textbf{Cédula:} & [% c.user.cedula %] \tabularnewline
+\hline
+\end{tabular}
+
+
+\section{Notas}
+
+\begin{tabular}{|c|c|c|c|c|}
+\hline 
+\textbf{Materia} & \textbf{Lapso 1} & \textbf{Lapso 2} & \textbf{Lapso 3} & \textbf{Definitiva}\tabularnewline
+\hline
+[% FOREACH materia IN materias %]
+    [% total = 0 %]
+    \hline 
+    [% materia %]
+        [% FOREACH nota IN notas %]
+            [% IF nota.materia.nombre == materia %]
+                [% total = total + nota.nota %]
+                & [% nota.nota %]
+            [% END %]
+        [% END %]
+        & [% total / 3 FILTER format('%02.2f') %] \tabularnewline
+    \hline 
+    [% total2 = total2 + total / 3 %]
+[% END %]
+
+\end{tabular}
+
+\textbf{Promedio: } [% total2 / 11 FILTER format('%02.2f') %]
+
+\section{Materias de Arrastre}
+
+\tiny{
+La información aquí contenida es referencial, las notas no podrán ser considerados como información certificada del Liceo Bolivariano "Dr. Vicente Dávila" para uso en nigún trámite legal.}
+\end{document}
+[%END%]

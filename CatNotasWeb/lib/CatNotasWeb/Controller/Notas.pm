@@ -52,6 +52,33 @@ sub prueba : Local {
     $c->stash->{nombre} = 'Lilibeth';
 }
 
+sub reporte : Path('/reporte/pdf') {
+    my ( $self, $c ) = @_;
+    my $file = $c->user->cedula . '.pdf';
+    $c->stash->{template} = 'pdf.tt';
+    my $rs = $c->model('DB::Persona')->search(cedula => $c->user->cedula);
+    my @notas = $rs->first->notas->all;
+
+    my %materias;
+    foreach (@notas){
+     $materias{$_->materia->nombre} += $_->nota; 
+    }
+
+    my @materias = keys %materias;
+
+    $c->log->debug(Dumper(%materias));
+
+    $c->stash->{notas} = \@notas ;
+    $c->stash->{nombre} = $rs->first->nombres;
+    $c->stash->{materias} = \@materias;
+
+    if ($c->forward( 'CatNotasWeb::View::PDF' ) ) {
+        $c->response->content_type('application/pdf');
+        $c->response->header('Content-Disposition', "attachment; filename=$file");
+    }
+
+}
+
 
 =head1 AUTHOR
 
