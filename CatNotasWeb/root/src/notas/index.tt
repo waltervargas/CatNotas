@@ -1,0 +1,6 @@
+<div>
+    Notas del Alumno: [% c.user.nombres %]
+</div>
+<table border="0">
+
+</table>

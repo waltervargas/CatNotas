@@ -16,13 +16,41 @@ use Catalyst::Runtime 5.80;
 # Static::Simple: will serve static files from the application's root
 #                 directory
 
+# Los plugins para autenticacion son: 
+#   Authentication
+#    Session
+#    Session::Store::FastMmap
+#    Session::State::Cookie
+
 use Catalyst qw/
     -Debug
     ConfigLoader
     Static::Simple
+    
+    Authentication
+    Session
+    Session::Store::FastMmap
+    Session::State::Cookie
 /;
 
 extends 'Catalyst';
+
+__PACKAGE__->config({
+ 'Plugin::Authentication' => {
+ default => {
+    credential => {
+        class => 'Password', 
+        password_field => 'password', 
+        password_type => 'clear', 
+    }, 
+    store => {
+        class => 'DBIx::Class', 
+        user_model => 'DB::Persona', 
+        id_field => 'cedula', 
+    }
+ }
+}, 
+});
 
 our $VERSION = '0.01';
 
@@ -35,11 +63,6 @@ our $VERSION = '0.01';
 # with an external configuration file acting as an override for
 # local deployment.
 
-__PACKAGE__->config(
-    name => 'CatNotasWeb',
-    # Disable deprecated behavior needed by old applications
-    disable_component_resolution_regex_fallback => 1,
-);
 
 # Start the application
 __PACKAGE__->setup();

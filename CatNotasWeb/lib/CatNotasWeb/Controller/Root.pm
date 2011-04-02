@@ -28,9 +28,37 @@ The root page (/)
 
 sub index :Path :Args(0) {
     my ( $self, $c ) = @_;
+    if ($c->user_exists){
+        $c->res->redirect($c->uri_for('/notas'));
+    } else {
+        $c->res->redirect($c->uri_for('/login'));
+    }
+}
 
-    # Hello World
-    $c->response->body( $c->welcome_message );
+sub login : Local {
+    my ( $self, $c ) = @_;
+
+    if ($c->req->method eq 'POST'){
+        my $cedula      = $c->req->param('cedula');
+        my $password    = $c->req->param('password');
+        if ($c->authenticate({ cedula => $cedula , password => $password })){
+            $c->res->redirect($c->uri_for('/'));
+        } else {
+            $c->res->redirect($c->uri_for('/login'));
+        }
+    }
+
+    unless ($c->user_exists){
+        $c->stash->{template} = 'login.tt';
+    } else {
+        $c->res->redirect( $c->uri_for('/'));
+    }
+}
+
+sub logout : Local {
+    my ( $self, $c ) = @_;
+    $c->logout;
+    $c->res->redirect($c->uri_for('/'));
 }
 
 =head2 default

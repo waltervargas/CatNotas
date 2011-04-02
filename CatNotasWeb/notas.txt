@@ -1,0 +1,2 @@
+# Para crear el esquema de datos se utilizo:
+script/catnotasweb_create.pl model DB DBIC::Schema CatNotasWeb::Schema create=static dbi:SQLite:notas.db on_connect_do="PRAGMA foreign_keys = ON" 
