@@ -28,3 +28,10 @@
 <div>
 <span> Promedio: </span> <span> [% total2 / 11 FILTER format('%02.2f') %] </span>
 </div>
+
+<h2> Materias de Arrastre </h2>
+<table border="1">
+    [% FOREACH materia IN arrastre %]
+        <tr> <td> [% materia.materia.nombre %] </td> </tr>
+    [% END %]
+</table>

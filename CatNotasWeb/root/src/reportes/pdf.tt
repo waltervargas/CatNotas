@@ -30,13 +30,13 @@
 
 \section{Datos del estudiante}
 
-\begin{tabular}{|c|c|}
+\begin{tabular}{|c|c|c|c|}
 \hline 
-\textbf{Nombre:} & [% c.user.nombres %] \tabularnewline
+\textbf{Nombre:} & [% c.user.nombres %] & \textbf{Edad:} & [% c.user.edad %] \tabularnewline
 \hline
-\textbf{Apellido:} & [% c.user.apellidos %] \tabularnewline
+\textbf{Apellido:} & [% c.user.apellidos %] & \textbf{Grado: } & [% c.user.ano %] \tabularnewline
 \hline
-\textbf{Cédula:} & [% c.user.cedula %] \tabularnewline
+\textbf{Cédula:} & [% c.user.cedula %] & \textbf{Sección: } & [% c.user.seccion %] \tabularnewline
 \hline
 \end{tabular}
 

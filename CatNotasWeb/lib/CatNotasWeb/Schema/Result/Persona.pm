@@ -59,7 +59,31 @@ __PACKAGE__->add_columns(
   { data_type => "integer", is_nullable => 0 },
   "password",
   { data_type => "varchar", is_nullable => 1 },
+  "edad",
+  { data_type => "integer", is_nullable => 1 },
+  "ano",
+  { data_type => "integer", is_nullable => 1 },
+  "seccion",
+  { data_type => "varchar", is_nullable => 1 },
 );
+__PACKAGE__->set_primary_key("id");
+__PACKAGE__->add_unique_constraint("sqlite_autoindex_personas_1", ["cedula"]);
+
+__PACKAGE__->has_many(
+    "notas", "CatNotasWeb::Schema::Result::Nota", "id_persona" 
+);
+
+__PACKAGE__->has_many(
+    "arrastre", "CatNotasWeb::Schema::Result::Materia_Arrastre", "id_persona" 
+);
+
+
+# Created by DBIx::Class::Schema::Loader v0.07000 @ 2011-04-02 00:46:42
+# DO NOT MODIFY THIS OR ANYTHING ABOVE! md5sum:pFR3IaOcqBB8s4JCM6zM3A
+
+
+# You can replace this text with custom content, and it will be preserved on regeneration
+1;
 __PACKAGE__->set_primary_key("id");
 __PACKAGE__->add_unique_constraint("sqlite_autoindex_personas_1", ["cedula"]);
 
