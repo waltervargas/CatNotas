@@ -10,9 +10,9 @@
         <th> Definitiva </th> 
     </thead>
 [% FOREACH materia IN materias %]
+    [% total = 0 %]
     <tr>
         <td>[% materia %]</td> 
-        [% total = 0 %]
         [% FOREACH nota IN notas %]
             [% IF nota.materia.nombre == materia %]
                 [% total = total + nota.nota %]
@@ -21,5 +21,10 @@
         [% END %]
         <td>[% total / 3 FILTER format('%02.2f') %]</td>
     </tr>
+    [% total2 = total2 + total / 3 %]
 [% END %]
 </table>
+
+<div>
+<span> Promedio: </span> <span> [% total2 / 11 FILTER format('%02.2f') %] </span>
+</div>
