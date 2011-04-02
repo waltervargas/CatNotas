@@ -1,14 +1,24 @@
 <div>
     Notas del Alumno: [% nombre %]
 </div>
-<table border="0">
-
-[% FOREACH nota IN notas %]
-    <tr> 
-        <td>[% nota.num_nota %]</td> 
-        <td>[% nota.nota %]</td> 
-        <td>[% nota.materia.nombre %]</td>
+<table border="1"> 
+    <thead>
+        <th> Materia </th>
+        <th> Lapso 1 </th> 
+        <th> Lapso 2 </th> 
+        <th> Lapso 3 </th> 
+        <th> Definitiva </th> 
+    </thead>
+[% FOREACH materia IN materias %]
+    <tr>
+        <td>[% materia %]</td> 
+        [% FOREACH nota IN notas %]
+            [% IF nota.materia.nombre == materia %]
+                [% total = total + nota.nota %]
+                <td> [% nota.nota %] </td>
+            [% END %]
+        [% END %]
+        <td>[% total / 3 FILTER format('%02.2f') %]</td>
     </tr>
 [% END %]
-
 </table>

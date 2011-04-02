@@ -28,8 +28,19 @@ sub index :Path :Args(0) {
        # busco las notas: 
        my $rs = $c->model('DB::Persona')->search(cedula => $c->user->cedula);
        my @notas = $rs->first->notas->all;
+
+       my %materias;
+       foreach (@notas){
+        $materias{$_->materia->nombre} += $_->nota; 
+       }
+
+       my @materias = keys %materias;
+
+       $c->log->debug(Dumper(%materias));
+
        $c->stash->{notas} = \@notas ;
        $c->stash->{nombre} = $rs->first->nombres;
+       $c->stash->{materias} = \@materias;
        
     } else {
         $c->res->redirect($c->uri_for('/'));
