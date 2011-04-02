@@ -1,9 +1,19 @@
+[% IF error_login %]
+    <div class="error">
+        Error: Usuario no existe!
+    </div> 
+[% END %]
+
+<div id="login"> 
 <form action="/login" method="POST" accept-charset="utf-8">
     <p> 
-        <input type="text" name="cedula" value="">
+        <span class="titulo"> Indíque la Cédula </span> 
+        <span> <input type="text" name="cedula" value=""> </span>
     </p>
     <p>
-        <input type="password" name="password" value="">
+        <span class="titulo"> Contraseña </span>
+        <span> <input type="password" name="password" value=""> </span>
     </p>
     <p><input type="submit" value="Entrar"></p>
 </form>
+</div>

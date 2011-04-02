@@ -44,11 +44,14 @@ sub login : Local {
         if ($c->authenticate({ cedula => $cedula , password => $password })){
             $c->res->redirect($c->uri_for('/'));
         } else {
-            $c->res->redirect($c->uri_for('/login'));
+            $c->stash->{error_login} = 1;
+            $c->stash->{titulo} = 'Inicio de session';
+            $c->stash->{template} = 'login.tt';
         }
     }
 
     unless ($c->user_exists){
+        $c->stash->{titulo} = 'Inicio de session';
         $c->stash->{template} = 'login.tt';
     } else {
         $c->res->redirect( $c->uri_for('/'));

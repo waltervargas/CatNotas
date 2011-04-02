@@ -1,6 +1,3 @@
-<div>
-    Notas del Alumno: [% nombre %]
-</div>
 <table border="1"> 
     <thead>
         <th> Materia </th>

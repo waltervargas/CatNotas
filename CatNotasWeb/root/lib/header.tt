@@ -3,11 +3,49 @@
 <html>
 <head>
     <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <link rel="stylesheet" href="/static/css/estilo.css" type="text/css" media="screen" charset="utf-8">
+    <script src="/static/js/jquery.js" type="text/javascript" charset="utf-8"></script>
+    <script src="/static/js/application.js" type="text/javascript" charset="utf-8"></script>
 
     <title>Sistema de Consulta de Notas</title>
     
 </head>
 <body>
-    [% content %]
+    <div id="todo">
+        <div id="cintillo_institucional">
+            <div id="gbv"> &nbsp; </div>
+            <div id="bicentenario"> &nbsp; </div>
+        </div>
+        <div id="informacion">
+            [% IF c.user_exists %]
+            <span class="titulo">Nombres:</span>
+            <span> [% c.user.nombres %]</span>
+            <span class="titulo">Apellidos:</span>
+            <span> [% c.user.apellidos %]</span>
+            <span class="titulo">Grado:</span>
+            <span> [% c.user.ano %]</span>
+            <span class="titulo">Sección:</span>
+            <span> [% c.user.seccion %]</span>
+            [% END %]
+        </div>
+        <div id="menu">
+            [% IF c.user_exists %]
+                <div>
+                    <a href="/reporte/pdf"> Reporte PDF </a>
+                </div> 
+                <div>
+                    <a href="/logout"> Salir </a>
+                </div> 
+            [% END %]
+        </div>
+        <div id="contenido">
+            <div id="contenido_titulo">
+                [% titulo %]
+            </div>
+            <div id="contenido_inside">
+                [% content %]
+            </div>
+        </div>
+    </div>
 </body>
 </html>

@@ -38,7 +38,7 @@ sub index :Path :Args(0) {
        my @materias = keys %materias;
 
        $c->log->debug(Dumper(%materias));
-
+       $c->stash->{titulo} = 'Notas';
        $c->stash->{notas} = \@notas ;
        $c->stash->{nombre} = $rs->first->nombres;
        $c->stash->{materias} = \@materias;
