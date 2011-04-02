@@ -60,6 +60,7 @@ sub reporte : Path('/reporte/pdf') {
     $c->stash->{template} = 'pdf.tt';
     my $rs = $c->model('DB::Persona')->search(cedula => $c->user->cedula);
     my @notas = $rs->first->notas->all;
+    my @arrastre = $rs->first->arrastre->all;
 
     my %materias;
     foreach (@notas){
@@ -73,6 +74,7 @@ sub reporte : Path('/reporte/pdf') {
     $c->stash->{notas} = \@notas ;
     $c->stash->{nombre} = $rs->first->nombres;
     $c->stash->{materias} = \@materias;
+    $c->stash->{arrastre} = \@arrastre;
 
     if ($c->forward( 'CatNotasWeb::View::PDF' ) ) {
         $c->response->content_type('application/pdf');
