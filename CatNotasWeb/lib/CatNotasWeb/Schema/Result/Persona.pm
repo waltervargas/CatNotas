@@ -63,6 +63,10 @@ __PACKAGE__->add_columns(
 __PACKAGE__->set_primary_key("id");
 __PACKAGE__->add_unique_constraint("sqlite_autoindex_personas_1", ["cedula"]);
 
+__PACKAGE__->has_many(
+    "notas", "CatNotasWeb::Schema::Result::Nota", "id_persona" 
+);
+
 
 # Created by DBIx::Class::Schema::Loader v0.07000 @ 2011-04-02 00:46:42
 # DO NOT MODIFY THIS OR ANYTHING ABOVE! md5sum:pFR3IaOcqBB8s4JCM6zM3A

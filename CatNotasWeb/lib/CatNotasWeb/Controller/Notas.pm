@@ -1,6 +1,7 @@
 package CatNotasWeb::Controller::Notas;
 use Moose;
 use namespace::autoclean;
+use Data::Dumper;
 
 BEGIN {extends 'Catalyst::Controller'; }
 
@@ -24,7 +25,12 @@ Catalyst Controller.
 sub index :Path :Args(0) {
     my ( $self, $c ) = @_;
     if ($c->user_exists) {
-        
+       # busco las notas: 
+       my $rs = $c->model('DB::Persona')->search(cedula => $c->user->cedula);
+       my @notas = $rs->first->notas->all;
+       $c->stash->{notas} = \@notas ;
+       $c->stash->{nombre} = $rs->first->nombres;
+       
     } else {
         $c->res->redirect($c->uri_for('/'));
     }

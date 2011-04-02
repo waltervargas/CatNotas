@@ -1,6 +1,14 @@
 <div>
-    Notas del Alumno: [% c.user.nombres %]
+    Notas del Alumno: [% nombre %]
 </div>
 <table border="0">
+
+[% FOREACH nota IN notas %]
+    <tr> 
+        <td>[% nota.num_nota %]</td> 
+        <td>[% nota.nota %]</td> 
+        <td>[% nota.materia.nombre %]</td>
+    </tr>
+[% END %]
 
 </table>
