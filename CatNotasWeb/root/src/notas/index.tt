@@ -12,6 +12,7 @@
 [% FOREACH materia IN materias %]
     <tr>
         <td>[% materia %]</td> 
+        [% total = 0 %]
         [% FOREACH nota IN notas %]
             [% IF nota.materia.nombre == materia %]
                 [% total = total + nota.nota %]
