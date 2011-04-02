@@ -1,4 +1,4 @@
-<table border="1"> 
+<table cellpadding="2" cellspacing="2"> 
     <thead>
         <th> Materia </th>
         <th> Lapso 1 </th> 

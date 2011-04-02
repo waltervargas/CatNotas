@@ -23,5 +23,7 @@ $(document).ready(function(){
     $("div#login").parent().parent().width('50%');
     $("div#login").parent().parent().css('margin-left', '220px');
 
+    $("div#contenido_inside tr:odd").css('background-color', '#ddd');
+
 
 });

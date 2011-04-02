@@ -46,6 +46,10 @@
                 [% content %]
             </div>
         </div>
+        <div class="footer"> 
+            La información aquí contenida es referencial, las notas no podrán ser considerados como información 
+            certificada del Liceo Bolivariano "Dr. Vicente Dávila" para uso en nigún trámite legal.
+        </div>
     </div>
 </body>
 </html>

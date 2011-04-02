@@ -67,7 +67,6 @@ div#contenido {
 
 div#contenido_inside{
  overflow: auto;
-
 }
 
 div.error {
@@ -95,4 +94,13 @@ div#contenido_titulo {
  padding: 8px;
  font-weight: bold;
  
+}
+
+div.footer {
+ padding: 40px;
+ text-align: center;
+ margin-left: 40px;
+ margin-right: 40px;
+ font-size: 8pt;
+ color: #444;
 }
