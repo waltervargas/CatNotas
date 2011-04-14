@@ -1,5 +1,5 @@
 <div>
-<table cellpadding="2" cellspacing="2"> 
+<table cellpadding="2" cellspacing="2" width="100%"> 
     <thead>
         <th> Materia </th>
         <th> Lapso 1 </th> 
