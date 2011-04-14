@@ -20,6 +20,7 @@
     </tr>
     [% total2 = total2 + total / 3 %]
 [% END %]
+</table>
 
 <span> Promedio: </span> <span> [% total2 / 11 FILTER format('%02.2f') %] </span>
 
@@ -28,3 +29,4 @@
     [% FOREACH materia IN arrastre %]
         <tr> <td> [% materia.materia.nombre %] </td> </tr>
     [% END %]
+</table>
