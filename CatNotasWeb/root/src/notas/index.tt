@@ -1,3 +1,4 @@
+<div>
 <table cellpadding="2" cellspacing="2"> 
     <thead>
         <th> Materia </th>
@@ -20,15 +21,13 @@
     </tr>
     [% total2 = total2 + total / 3 %]
 [% END %]
-</table>
-
-<div>
-<span> Promedio: </span> <span> [% total2 / 11 FILTER format('%02.2f') %] </span>
+    <span> Promedio: </span> <span> [% total2 / 11 FILTER format('%02.2f') %] </span>
 </div>
 
+<div>
 <h2> Materias de Arrastre </h2>
-<table border="1">
+<table  cellpadding="2" cellspacing="2">
     [% FOREACH materia IN arrastre %]
         <tr> <td> [% materia.materia.nombre %] </td> </tr>
     [% END %]
-</table>
+</div>

@@ -13,6 +13,7 @@ div#informacion {
 
 span.titulo {
  font-weight: bold;
+ text-align: center;
 }
 
 div#todo{
@@ -67,6 +68,8 @@ div#contenido {
 
 div#contenido_inside{
  overflow: auto;
+ text-align: center; 
+ margin:0px auto;
 }
 
 div.error {
@@ -103,4 +106,8 @@ div.footer {
  margin-right: 40px;
  font-size: 8pt;
  color: #444;
+}
+
+table thead {
+ text-align: center; 
 }

@@ -4,6 +4,10 @@
     </div> 
 [% END %]
 
+<div id="titulo">
+    <h2>Sitema de Consulta de Calificaciones</h2>
+</div>
+
 <div id="login"> 
 <form action="/login" method="POST" accept-charset="utf-8">
     <p> 

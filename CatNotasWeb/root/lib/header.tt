@@ -22,7 +22,9 @@
             <span> [% c.user.nombres %]</span>
             <span class="titulo">Apellidos:</span>
             <span> [% c.user.apellidos %]</span>
-            <span class="titulo">Grado:</span>
+            <span class="titulo">Cédula de Identidad:</span>
+            <span> [% c.user.cedula %]</span>            
+            <span class="titulo">Año:</span>
             <span> [% c.user.ano %]</span>
             <span class="titulo">Sección:</span>
             <span> [% c.user.seccion %]</span>

@@ -24,7 +24,8 @@
 \begin{document}
 
 \title{Reporte de Notas}
-\subject{ Sistema de Consulta de Notas }
+\subject{ Sistema de Consulta de Notas}
+\author{Liceo Bolivariano "Dr. Vicente Dávila"}
 
 \maketitle
 
@@ -34,7 +35,7 @@
 \hline 
 \textbf{Nombre:} & [% c.user.nombres %] & \textbf{Edad:} & [% c.user.edad %] \tabularnewline
 \hline
-\textbf{Apellido:} & [% c.user.apellidos %] & \textbf{Grado: } & [% c.user.ano %] \tabularnewline
+\textbf{Apellido:} & [% c.user.apellidos %] & \textbf{Año: } & [% c.user.ano %] \tabularnewline
 \hline
 \textbf{Cédula:} & [% c.user.cedula %] & \textbf{Sección: } & [% c.user.seccion %] \tabularnewline
 \hline
