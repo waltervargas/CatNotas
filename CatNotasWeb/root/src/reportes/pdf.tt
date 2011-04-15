@@ -39,6 +39,9 @@
 \hline
 \textbf{Cédula:} & [% c.user.cedula %] & \textbf{Sección: } & [% c.user.seccion %] \tabularnewline
 \hline
+\textbf{Inasistencias:} & [% c.user.inasistencia %] &  & \tabularnewline
+\hline
+
 \end{tabular}
 
 
@@ -71,19 +74,23 @@
 
 \hspace{1cm}
 
-\begin{tabular}{|c|}
-\hline
-\textbf{Materias de Arrastre} \tabularnewline
-\hline
-[% FOREACH materia IN arrastre %]
-    [% FOREACH nota IN notas %]
-       [% IF nota.materia.id == materia.materia.id %]
-          [% total = total + nota.nota %]
-             <td> [% nota.nota %] </td>
-       [% END %]
+\begin{tabular}{|c|c|c|c|c|}
+\hline 
+\textbf{Materia} & \textbf{Lapso 1} & \textbf{Lapso 2} & \textbf{Lapso 3} & \textbf{Definitiva}\tabularnewline
+    \hline 
+    [% FOREACH materia IN arrastre %]
+        [% total = 0 %]
+        [% materia.materia.nombre %] 
+        [% FOREACH nota IN notas %]
+            [% IF nota.materia.id == materia.materia.id %]
+                [% total = total + nota.nota %]
+                & [% nota.nota %]
+            [% END %]
+        [% END %]
+        & [% total / 3 FILTER format('%02.2f') %]
+        \tabularnewline
+        \hline 
     [% END %]
-    <td>[% total / 3 FILTER format('%02.2f') %]</td>
-[% END %]
 \hline 
 \end{tabular}
 
