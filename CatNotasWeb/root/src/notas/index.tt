@@ -25,8 +25,26 @@
 <span> Promedio: </span> <span> [% total2 / 11 FILTER format('%02.2f') %] </span>
 
 <h2> Materias de Arrastre </h2>
-<table  cellpadding="2" cellspacing="2">
+<table  cellpadding="2" cellspacing="2" width="100%">
+    <thead>
+        <th> Materia </th>
+        <th> Lapso 1 </th> 
+        <th> Lapso 2 </th> 
+        <th> Lapso 3 </th> 
+        <th> Definitiva </th> 
+    </thead>
     [% FOREACH materia IN arrastre %]
-        <tr> <td> [% materia.materia.nombre %] </td> </tr>
+    <tr> 
+        <td> [% materia.materia.nombre %] </td> 
+            [% FOREACH nota IN notas %]
+                [% IF nota.materia.id == materia.materia.id %]
+                    [% total = total + nota.nota %]
+                    <td> [% nota.nota %] </td>
+                [% END %]
+            [% END %]
+        <td>[% total / 3 FILTER format('%02.2f') %]</td>
+    
+    </tr>
+        
     [% END %]
 </table>

@@ -2,6 +2,7 @@ package CatNotasWeb::Controller::Notas;
 use Moose;
 use namespace::autoclean;
 use Data::Dumper;
+use 5.010;
 
 BEGIN {extends 'Catalyst::Controller'; }
 
@@ -30,8 +31,12 @@ sub index :Path :Args(0) {
        my @notas = $rs->first->notas->all;
        my @arrastre = $rs->first->arrastre->all;
 
+       my @arrastre_id = map { $_->id_materia } @arrastre;
+
        my %materias;
        foreach (@notas){
+        my $id_materia = $_->materia->id;
+        next if $id_materia ~~ @arrastre_id;
         $materias{$_->materia->nombre} += $_->nota; 
        }
 
