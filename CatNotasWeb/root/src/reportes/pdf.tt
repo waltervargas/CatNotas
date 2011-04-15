@@ -76,7 +76,13 @@
 \textbf{Materias de Arrastre} \tabularnewline
 \hline
 [% FOREACH materia IN arrastre %]
-[% materia.materia.nombre %] \tabularnewline
+    [% FOREACH nota IN notas %]
+       [% IF nota.materia.id == materia.materia.id %]
+          [% total = total + nota.nota %]
+             <td> [% nota.nota %] </td>
+       [% END %]
+    [% END %]
+    <td>[% total / 3 FILTER format('%02.2f') %]</td>
 [% END %]
 \hline 
 \end{tabular}
