@@ -36,6 +36,7 @@
     [% FOREACH materia IN arrastre %]
     <tr> 
         <td> [% materia.materia.nombre %] </td> 
+            [% total = 0 %]
             [% FOREACH nota IN notas %]
                 [% IF nota.materia.id == materia.materia.id %]
                     [% total = total + nota.nota %]

@@ -28,6 +28,8 @@
             <span> [% c.user.ano %]</span>
             <span class="titulo">Sección:</span>
             <span> [% c.user.seccion %]</span>
+            <span class="titulo">Inasistencias:</span>
+            <span> [% c.user.inasistencia %]</span>
             [% END %]
         </div>
         <div id="menu">

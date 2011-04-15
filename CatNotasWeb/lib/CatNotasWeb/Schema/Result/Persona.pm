@@ -65,6 +65,8 @@ __PACKAGE__->add_columns(
   { data_type => "integer", is_nullable => 1 },
   "seccion",
   { data_type => "varchar", is_nullable => 1 },
+  "inasistencia",
+  { data_type => "integer", is_nullable => 1 },
 );
 __PACKAGE__->set_primary_key("id");
 __PACKAGE__->add_unique_constraint("sqlite_autoindex_personas_1", ["cedula"]);
