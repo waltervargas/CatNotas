@@ -25,5 +25,21 @@ $(document).ready(function(){
 
     $("div#contenido_inside tr:odd").css('background-color', '#ddd');
 
+    
+    $("#tabla_materias tbody tr").each(function(){
+        var td = $(this).children().eq(4);
+        if ($(td).html() < 10){
+            $(td).parent().addClass("raspado");
+            $(td).parent().removeAttr("style");
+        }
+    });
+    $("#tabla_materias_arrastre tbody tr").each(function(){
+        var td = $(this).children().eq(4);
+        if ($(td).html() < 10){
+            $(td).parent().addClass("raspado");
+            $(td).parent().removeAttr("style");
+        }
+    });
+
 
 });

@@ -1,10 +1,12 @@
-<table cellpadding="2" cellspacing="2" width="100%"> 
+<table id="tabla_materias" cellpadding="2" cellspacing="2" width="100%"> 
     <thead>
+        <tr>
         <th> Materia </th>
         <th> Lapso 1 </th> 
         <th> Lapso 2 </th> 
         <th> Lapso 3 </th> 
         <th> Definitiva </th> 
+        </tr>
     </thead>
 [% FOREACH materia IN materias %]
     [% total = 0 %]
@@ -25,13 +27,15 @@
 <span> Promedio: </span> <span> [% total2 / 11 FILTER format('%02.2f') %] </span>
 
 <h2> Materias de Arrastre </h2>
-<table  cellpadding="2" cellspacing="2" width="100%">
+<table id="tabla_materias_arrastre" cellpadding="2" cellspacing="2" width="100%">
     <thead>
+        <tr>
         <th> Materia </th>
         <th> Lapso 1 </th> 
         <th> Lapso 2 </th> 
         <th> Lapso 3 </th> 
         <th> Definitiva </th> 
+        </tr>
     </thead>
     [% FOREACH materia IN arrastre %]
     <tr> 

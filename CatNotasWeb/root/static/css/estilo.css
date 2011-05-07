@@ -6,6 +6,16 @@ body {
  font-size: 10pt;
 }
 
+
+tr.raspado {
+	font-weight: bold;
+	text-decoration: underline;
+    background-color: #cc0000;
+	color: #fffeff;
+    
+}
+
+
 div#informacion {
  font-size: 12px;
  background-color: #eee;
